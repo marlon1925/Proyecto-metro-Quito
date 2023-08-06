@@ -18,7 +18,7 @@
   },
   "metro": [
     {
-      "nombre": "Quitumbe",
+      "nombre": "Quitumbe SUR",
       "sector": "Sur-norte",
       "salida": "Quitumbe",
       "llegada": "Carolina",
@@ -27,22 +27,13 @@
       "id": "aaab703b-6af6-4853-bf05-6134be5e8710"
     },
     {
-      "nombre": "Melani",
-      "sector": "Guamani",
-      "salida": "terminal",
-      "llegada": "Marin",
-      "maquinista": "Felipe",
-      "detalles": "aseguresedellavadsda",
-      "id": "3c75b968-21a4-4d59-b3fb-3b5554b77e8b"
-    },
-    {
-      "nombre": "Dany",
-      "sector": "sdmww",
-      "salida": "mrewrmk",
-      "llegada": "ekewmrk",
-      "maquinista": "rkeokrwok",
-      "detalles": "ewrroeroewkr",
-      "id": "9f81e741-eec1-422e-9184-9cdddf676532"
+      "nombre": "Quintana",
+      "sector": "Quito",
+      "salida": "Norte",
+      "llegada": "EPN",
+      "maquinista": "Jose",
+      "detalles": "cdsjdssdvsdv",
+      "id": "6976de17-c5ce-4310-a12e-bbd8ac1aff37"
     }
   ]
 }

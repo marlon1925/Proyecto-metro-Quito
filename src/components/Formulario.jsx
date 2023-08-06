@@ -4,9 +4,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { useEffect } from 'react'
 
 export const Formulario = ({setEstado,idMetro}) => {
-//useState siempre va antes del return ctrl + space      
-    const [error, setError] = useState(false)//Mensajes de error
-    const [mensaje, setMensaje] = useState(false)//
+
+// useState
+//useState siempre va antes del return 
+    const [error, setError] = useState(false) //Mensajes de error
+    const [mensaje, setMensaje] = useState(false) // Mensaje de aprovacion 
     const [form, setform] = useState({
             nombre:"",
             sector:"",
@@ -16,12 +18,14 @@ export const Formulario = ({setEstado,idMetro}) => {
             detalles:""
         })
     
+        // useEffect
 		useEffect(() => {
             if(idMetro)
             {
                 (async function (idMetro) {
                     try {
-                        const respuesta = await (await fetch(`http://64d01ce9ffcda80aff526972.mockapi.io/metro${idMetro}`)).json()
+                        //aqui
+                        const respuesta = await (await fetch(`https://64d01ce9ffcda80aff526972.mockapi.io/metro/${idMetro}`)).json()
                         const {id,nombre,sector,salida,llegada,maquinista,detalles} = respuesta
                         setform({
                             ...form,
@@ -43,6 +47,7 @@ export const Formulario = ({setEstado,idMetro}) => {
 
     //La funcion handleChange la cual manda tambien el evento
 
+    // Handle
     const handleChange = (e) => { 
         //Para modificar el valor "setform"  
         setform({
@@ -67,9 +72,9 @@ export const Formulario = ({setEstado,idMetro}) => {
             return
         }
         try {
-
+            // Actualizacion de las rutas
             if(form.id){
-                const url = `http://64d01ce9ffcda80aff526972.mockapi.io/metro${form.id}`
+                const url = `https://64d01ce9ffcda80aff526972.mockapi.io/metro/${form.id}`
                 await fetch(url,{
                     method:'PUT',
                     body:JSON.stringify(form),
@@ -77,14 +82,15 @@ export const Formulario = ({setEstado,idMetro}) => {
                 })
                 setEstado(true)
                 setform({})
-								setTimeout(() => {
-                    setEstado(false)
+					setTimeout(() => {
+                        setEstado(false)
                     setform({})
-                    
                 }, 1000)
             }
+
+            // Creacion de las rutas
             else{
-                const url ="http://64d01ce9ffcda80aff526972.mockapi.io/metro"
+                const url ="https://64d01ce9ffcda80aff526972.mockapi.io/metro/"
                             form.id = uuidv4()
                 await fetch(url,{
                     method:'POST',
@@ -95,7 +101,7 @@ export const Formulario = ({setEstado,idMetro}) => {
                             setEstado(true)
                 setTimeout(() => {
                     setMensaje(false)
-                                    setEstado(false)
+                        setEstado(false)
                     setform({})
                 }, 1000);
             }
@@ -202,6 +208,8 @@ export const Formulario = ({setEstado,idMetro}) => {
             </div>
 
             <input
+            
+            /* vdfvfd */
                 type="submit"
                 className='bg-sky-900 w-full p-3 
         text-white uppercase font-bold rounded-lg 
@@ -211,3 +219,4 @@ export const Formulario = ({setEstado,idMetro}) => {
         </form>
     )
 }
+
